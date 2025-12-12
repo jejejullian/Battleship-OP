@@ -4,7 +4,7 @@ Game strategi klasik **Battleship** yang dibangun menggunakan Vanilla JavaScript
 
 Mainkan game ini melawan Komputer yang cerdas!
 
-🔗 **[Lihat Live Demo Disini](MASUKKAN_LINK_HOSTING_KAMU_DISINI)**
+🔗 **[Lihat Live Demo Disini](https://battleship-op.vercel.app/)**
 
 ## ✨ Fitur Utama
 
