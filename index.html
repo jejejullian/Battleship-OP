@@ -11,7 +11,7 @@
     <main class="flex flex-col items-center justify-center min-h-screen py-10">
       <!-- =====HEADER===== -->
       <header class="mb-10 text-center">
-        <h1 class="text-5xl font-extrabold tracking-widest text-cyan-400 uppercase drop-shadow-lg">Battleship</h1>
+        <h1 class="text-4xl font-extrabold tracking-widest text-cyan-400 uppercase drop-shadow-lg">Battleship</h1>
         <p class="mt-2 text-slate-400 text-sm tracking-wide">Destroy the Enemy Fleet</p>
       </header>
 
@@ -21,7 +21,7 @@
         <article class="flex flex-col items-center">
           <h2 class="text-xl font-bold text-emerald-400 mb-4 tracking-wider flex items-center gap-2"><span>⚓</span> FRIENDLY WATERS</h2>
 
-          <button id="rotate-btn" class="text-lg font-medium text-center text-cyan-200 bg-slate-800 px-6 py-2 rounded-full border border-slate-700 cursor-pointer mb-2">Rotate</button>
+          <button id="rotate-btn" class="hidden md:block text-lg font-medium text-center text-cyan-200 bg-slate-800 px-6 py-2 rounded-full border border-slate-700 cursor-pointer mb-2">Rotate</button>
           <div id="ship-dock" class="mb-4"></div>
 
           <div id="player-board" class="grid grid-cols-10 grid-rows-1 bg-slate-700 p-1 rounded-lg shadow-inner border-2 border-slate-600 cursor-pointer"></div>
@@ -45,9 +45,6 @@
         <div id="game-info" class="text-lg font-medium text-center text-cyan-200 bg-slate-800 px-6 py-2 rounded-full border border-slate-700">Prepare your fleet, Commander!</div>
       </section>
     </main>
-
-    <!-- =====FOOTER===== -->
-    <footer class="fixed bottom-4 text-slate-600 text-xs">Created with logic & code</footer>
 
     <script type="module" src="/src/main.js"></script>
   </body>

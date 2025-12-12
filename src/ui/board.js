@@ -14,13 +14,15 @@ function renderPlayerBoard(player) {
   const playerBoard = document.querySelector("#player-board");
 
   playerBoard.innerHTML = "";
+  playerBoard.className = ""; 
+  playerBoard.classList.add("grid", "grid-cols-10", "gap-0.5", "w-full", "max-w-md", "mx-auto");
 
   const board1 = player.gameboard.board;
   board1.forEach((row, x) => {
     row.forEach((cell, y) => {
       const cellDiv = document.createElement("div");
 
-      cellDiv.classList.add("w-8", "h-8", "border", "border-gray-600");
+      cellDiv.classList.add("aspect-square", "w-full", "border", "border-gray-600");
 
       // Render Ships (Draggable)
       if (cell !== null) {
@@ -96,12 +98,14 @@ function renderComputerBoard(computer) {
   const computerBoard = document.querySelector("#computer-board");
 
   computerBoard.innerHTML = "";
+  computerBoard.className = ""; 
+  computerBoard.classList.add("grid", "grid-cols-10", "gap-0.5", "w-full", "max-w-md", "mx-auto");
 
   const board2 = computer.gameboard.board;
   board2.forEach((row, x) => {
     row.forEach((cell, y) => {
       const cellDiv = document.createElement("div");
-      cellDiv.classList.add("w-8", "h-8", "border", "border-gray-600");
+      cellDiv.classList.add("aspect-square", "w-full", "border", "border-gray-600");
 
       // Calculate Cell State
       const missedAttacks = computer.gameboard.missedAttacks;

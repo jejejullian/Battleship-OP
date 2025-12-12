@@ -39,6 +39,13 @@ function playRound(x, y) {
   }
 }
 
+function randomizePlayerOne(){
+  if(player1){
+    player1.gameboard.reset()
+    placeComputerShips(player1)
+  }
+}
+
 function placeComputerShips(player) {
   SHIP_DATA.forEach((ship) => {
     let isPlaced = false;
@@ -59,4 +66,4 @@ function getPlayers() {
   return { player1, player2 };
 }
 
-export { startGame, playRound, placeComputerShips, getPlayers };
+export { startGame, playRound, randomizePlayerOne, placeComputerShips, getPlayers };
