@@ -4,17 +4,33 @@ import { renderFleet } from "./fleet";
 
 export function renderBoards() {
   const data = getPlayers();
-
   renderPlayerBoard(data.player1);
-
   renderComputerBoard(data.player2);
+
+  const randomBtn = document.getElementById("random-btn");
+  const isGameStarted = data.player2.gameboard.shots.length > 0 || data.player2.gameboard.missedAttacks.length > 0;
+
+  if (randomBtn) {
+    if (isGameStarted) {
+      // Disable Button
+      randomBtn.disabled = true;
+      randomBtn.textContent = "Game Started 🔒";
+      randomBtn.classList.add("opacity-50", "cursor-not-allowed", "bg-gray-600");
+      randomBtn.classList.remove("bg-blue-500");
+    } else {
+      // Enable Button
+      randomBtn.disabled = false;
+      randomBtn.textContent = "Acak Posisi Kapal 🎲";
+      randomBtn.classList.remove("opacity-50", "cursor-not-allowed", "bg-gray-600");
+      randomBtn.classList.add("bg-blue-500");
+    }
+  }
 }
 
 function renderPlayerBoard(player) {
   const playerBoard = document.querySelector("#player-board");
 
   playerBoard.innerHTML = "";
-  playerBoard.className = ""; 
   playerBoard.classList.add("grid", "grid-cols-10", "gap-0.5", "w-full", "max-w-md", "mx-auto");
 
   const board1 = player.gameboard.board;
@@ -98,7 +114,6 @@ function renderComputerBoard(computer) {
   const computerBoard = document.querySelector("#computer-board");
 
   computerBoard.innerHTML = "";
-  computerBoard.className = ""; 
   computerBoard.classList.add("grid", "grid-cols-10", "gap-0.5", "w-full", "max-w-md", "mx-auto");
 
   const board2 = computer.gameboard.board;

@@ -40,9 +40,17 @@ function playRound(x, y) {
 }
 
 function randomizePlayerOne(){
-  if(player1){
-    player1.gameboard.reset()
-    placeComputerShips(player1)
+  // Check if the game has started?
+  const isGameStarted = player2.gameboard.shots.length > 0 || player2.gameboard.missedAttacks.length > 0;
+
+  if (isGameStarted) {
+    alert("🚫 Permainan sedang berlangsung! Anda tidak bisa mengacak kapal.");
+    return; 
+  }
+
+  if (player1) {
+    player1.gameboard.reset();
+    placeComputerShips(player1);
   }
 }
 

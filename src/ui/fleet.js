@@ -24,6 +24,7 @@
 
     // --- Button Random (MOBILE/TABLET) 📱 ---
     const randomBtn = document.createElement("button");
+    randomBtn.id = "random-btn";
     randomBtn.textContent = "Acak Posisi Kapal 🎲";
 
     randomBtn.classList.add(
