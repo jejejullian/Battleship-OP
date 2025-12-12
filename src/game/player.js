@@ -14,18 +14,17 @@ export const Player = (type) => {
     type: type,
     gameboard: Gameboard(),
     attack(enemy, x, y) {
-      // Pass result back for Turn Chaining logic
-      enemy.gameboard.receiveAttack(x, y);
+      return enemy.gameboard.receiveAttack(x, y);
     },
     randomAttack(enemy) {
-      // Pick Random Coordinate 
+      // Pick Random Coordinate
       const randomIndex = Math.floor(Math.random() * availableMoves.length);
       const move = availableMoves[randomIndex];
-      
+
       // Remove from Pool (Prevent Repeats)
       availableMoves.splice(randomIndex, 1);
 
-      this.attack(enemy, move.x, move.y);
+      return this.attack(enemy, move.x, move.y);
     },
   };
 };
