@@ -20,18 +20,25 @@ function playRound(x, y) {
 
   // Player Turn (Turn Chaining)
   const hitResult = player1.attack(player2, x, y);
-  if (hitResult) {
+
+  const isPlayerHit = hitResult !== null && hitResult !== undefined;
+
+  if (isPlayerHit) {
     if (player2.gameboard.allShipsSunk()) {
       gameInfo.textContent = "GAME OVER! YOU WIN!";
       return;
     }
-    return;
+    return; 
   }
 
   // Computer Turn (Auto-attack Loop)
   let computerHit = true;
   while (computerHit) {
-    computerHit = player2.randomAttack(player1);
+    const computerAttackResult = player2.randomAttack(player1);
+
+    // Convert to boolean
+    computerHit = computerAttackResult !== null && computerAttackResult !== undefined;
+
     if (player1.gameboard.allShipsSunk()) {
       gameInfo.textContent = "GAME OVER! YOU LOSE!";
       return;
@@ -39,13 +46,13 @@ function playRound(x, y) {
   }
 }
 
-function randomizePlayerOne(){
+function randomizePlayerOne() {
   // Check if the game has started?
   const isGameStarted = player2.gameboard.shots.length > 0 || player2.gameboard.missedAttacks.length > 0;
 
   if (isGameStarted) {
     alert("🚫 Permainan sedang berlangsung! Anda tidak bisa mengacak kapal.");
-    return; 
+    return;
   }
 
   if (player1) {
